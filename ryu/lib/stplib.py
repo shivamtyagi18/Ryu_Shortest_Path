@@ -240,20 +240,20 @@ class Stp(app_manager.RyuApp):
         assert isinstance(config, dict)
         self.config = config
 
-    @set_ev_cls(ofp_event.EventOFPStateChange,
-                [handler.MAIN_DISPATCHER, handler.DEAD_DISPATCHER])
-    def dispacher_change(self, ev):
-        assert ev.datapath is not None
-        if ev.state == handler.MAIN_DISPATCHER:
-            self._register_bridge(ev.datapath)
-        elif ev.state == handler.DEAD_DISPATCHER:
-            self._unregister_bridge(ev.datapath.id)
+    # @set_ev_cls(ofp_event.EventOFPStateChange,
+    #             [handler.MAIN_DISPATCHER, handler.DEAD_DISPATCHER])
+    # def dispacher_change1(self, ev):
+    #     assert ev.datapath is not None
+    #     if ev.state == handler.MAIN_DISPATCHER: 
+    #         self._register_bridge(ev.datapath)
+    #     elif ev.state == handler.DEAD_DISPATCHER:
+    #         self._unregister_bridge(ev.datapath.id)
+      
 
     def _register_bridge(self, dp):
         self._unregister_bridge(dp.id)
-
         dpid_str = {'dpid': dpid_to_str(dp.id)}
-        self.logger.info('Join as stp bridge.', extra=dpid_str)
+        self.logger.info('Join as stp1 bridge.', extra=dpid_str)
         try:
             bridge = Bridge(dp, self.logger,
                             self.config.get(dp.id, {}),
@@ -401,6 +401,7 @@ class Bridge(object):
         values = self._DEFAULT_VALUE
         for key, value in bridge_conf.items():
             values[key] = value
+        
         system_id = list(dp.ports.values())[0].hw_addr
 
         self.bridge_id = BridgeId(values['priority'],

@@ -23,7 +23,16 @@ from ryu.lib.packet import ethernet
 from ryu.lib.packet import ether_types
 from ryu.lib.packet import ipv4
 from ryu.lib.packet import icmp
+from ryu.topology.api import get_switch,get_link 
+from ryu.topology import event,switches
+from collections import defaultdict
 
+import time
+
+
+
+adjacency = defaultdict(lambda: defaultdict(lambda: None))
+links=[]
 
 class SimpleSwitch13(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
@@ -31,6 +40,8 @@ class SimpleSwitch13(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(SimpleSwitch13, self).__init__(*args, **kwargs)
         self.mac_to_port = {}
+        self.topology_api_app=self
+        
 
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):
@@ -145,3 +156,28 @@ class SimpleSwitch13(app_manager.RyuApp):
         out = parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,
                                   in_port=in_port, actions=actions, data=data)
         datapath.send_msg(out)
+        
+    @set_ev_cls(event.EventSwitchEnter)
+    def get_topology_data(self, ev):
+        switch_list = get_switch(self.topology_api_app, None)
+        switches=[switch.dp.id for switch in switch_list]
+        global links
+        links_list = []
+        # global adjacency
+        while links == [] :#or len( adjacency ) < len(switches): 
+            print( "inside while loop" )
+            links_list = get_link ( self.topology_api_app, None )
+            links = [ (link.src.dpid,link.dst.dpid,{'port':link.src.port_no}) for link in links_list]
+        time.sleep(0.1)    
+        links_list = get_link(self.topology_api_app, None)
+        links=[(link.src.dpid,link.dst.dpid,{'port':link.src.port_no}) for link in links_list]
+        print("links",links)
+        print("switches",switches)
+        # for link in links_list:  
+        #     sw_src='00-00-00-00-00-0'+ str(link.src.dpid)  
+        #     sw_dst='00-00-00-00-00-0'+ str(link.dst.dpid) 
+        #     adjacency[sw_src][sw_dst]=link.src.port_no
+        # print(" Adjacency Data ",len(adjacency), len(switches))
+        # for i in adjacency:
+        #     print(str(i)+" : "+str(adjacency[i]))
+         

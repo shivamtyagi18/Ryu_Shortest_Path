@@ -35,7 +35,7 @@ class SimpleSwitchStp(app_manager.RyuApp):
 
         # Sample of stplib config.
         #  please refer to stplib.Stp.set_config() for details.
-        """
+        
         config = {dpid_lib.str_to_dpid('0000000000000001'):
                      {'bridge': {'priority': 0x8000,
                                  'max_age': 10},
@@ -44,7 +44,7 @@ class SimpleSwitchStp(app_manager.RyuApp):
                   dpid_lib.str_to_dpid('0000000000000002'):
                      {'bridge': {'priority': 0x9000}}}
         self.stp.set_config(config)
-        """
+        
 
     def add_flow(self, datapath, in_port, dst, actions):
         ofproto = datapath.ofproto
