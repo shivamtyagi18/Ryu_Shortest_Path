@@ -62,6 +62,8 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
     @set_ev_cls(ofp_event.EventOFPFlowStatsReply, MAIN_DISPATCHER)
     def _flow_stats_reply_handler(self, ev):
         body = ev.msg.body
+        
+        print("body",body)
 
         self.logger.info('datapath         '
                          'in-port  eth-dst           '
