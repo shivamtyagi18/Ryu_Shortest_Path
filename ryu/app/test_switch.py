@@ -73,6 +73,7 @@ class SimpleSwitch(app_manager.RyuApp):
         self.topology_api_app=self 
         self.monitor_thread = hub.spawn(self._monitor)
         self.datapaths = {}
+        self.host_ip_to_mac = {}
 
     def add_flow(self, datapath, in_port, dst, src, actions):
         ofproto = datapath.ofproto
@@ -97,6 +98,8 @@ class SimpleSwitch(app_manager.RyuApp):
 
         pkt = packet.Packet(msg.data)
         eth = pkt.get_protocol(ethernet.ethernet)
+        arp = pkt.get_protocol(arp.arp)
+        ipv4 = pkt.get_protocol(ipv4.ipv4)
         
         # ETH_TYPE_IP = 0x0800
         # ETH_TYPE_ARP = 0x0806
@@ -122,6 +125,11 @@ class SimpleSwitch(app_manager.RyuApp):
         if eth.ethertype == ether_types.ETH_TYPE_ARP:
             print("Packet type --------------------------------------------ETH_TYPE_ARP",eth)
             print(pkt)
+            if arp.src_mac not in  self.host_ip_to_mac:
+                self.host_ip_to_mac [arp.src_mac] = arp.src_ip
+                
+            if arp.dst_mac not in  self.host_ip_to_mac:
+                self.host_ip_to_mac [arp.dst_mac] = arp.dst_ip
 
         if eth.ethertype == ether_types.ETH_TYPE_LLDP:
             # ignore lldp packet

@@ -1,0 +1,10 @@
+Commnads for git push:
+
+git remote add Hardware-Accelerator-Main https://github.com/shivamtyagi18/Hardware-Accelerator-Main.git
+
+git add .
+git commit -m "Message"
+
+git remote -v
+git remote set-url origin https://github.com/shivamtyagi18/Ryu_Shortest_Path.git
+git push origin master
