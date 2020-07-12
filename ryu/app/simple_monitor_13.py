@@ -20,6 +20,13 @@ from ryu.controller import ofp_event
 from ryu.controller.handler import MAIN_DISPATCHER, DEAD_DISPATCHER
 from ryu.controller.handler import set_ev_cls
 from ryu.lib import hub
+import numpy as np
+import pandas as pd
+import tensorflow as tf
+# from ryu.app.RNN import recurrentNeuralNetwork
+import os
+import tensorflow as tf
+import ryu.app.blocked_ip as ip_class
 
 
 class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
@@ -29,6 +36,15 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         self.datapaths = {}
         self.monitor_thread = hub.spawn(self._monitor)
         self.stats = {}
+        self.test_data = {}
+        self.test_data_frame = pd.DataFrame()
+        self.rnn_classification = {}
+        
+        
+        # self.sess = tf.Session()
+        # self.sess.run(tf.global_variables_initializer())
+        
+        # self.tensorGraph = tf.get_default_graph()
 
     @set_ev_cls(ofp_event.EventOFPStateChange,
                 [MAIN_DISPATCHER, DEAD_DISPATCHER])
@@ -45,6 +61,8 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
 
     def _monitor(self):
         while True:
+            # self.rnn = tf.keras.models.load_model("myModel")
+            # 
             for dp in self.datapaths.values():
                 self._request_stats(dp)
             hub.sleep(10)
@@ -62,38 +80,98 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
 
     @set_ev_cls(ofp_event.EventOFPFlowStatsReply, MAIN_DISPATCHER)
     def _flow_stats_reply_handler(self, ev):
+        msg = ev.msg
         body = ev.msg.body
+        dpid = msg.datapath.id
+        # self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/trainedModels/model89%") 
+        self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/myModel") 
         
-        print("body",body)
-
-        self.logger.info('datapath         '
-                         'in-port  eth-dst           '
-                         'out-port packets  bytes')
-        self.logger.info('---------------- '
-                         '-------- ----------------- '
-                         '-------- -------- --------')
         for stat in sorted([flow for flow in body if flow.priority == 1],
                            key=lambda flow: (flow.match['in_port'],
-                                             flow.match['eth_dst'])):
-            self.logger.info('%016x %8x %17s %8x %8d %8d',
-                             ev.msg.datapath.id,
-                             stat.match['in_port'], stat.match['eth_dst'],
-                             stat.instructions[0].actions[0].port,
-                             stat.packet_count, stat.byte_count)
-            self.stats[""]
+                                             flow.match['ipv4_dst'])):
 
-    @set_ev_cls(ofp_event.EventOFPPortStatsReply, MAIN_DISPATCHER)
-    def _port_stats_reply_handler(self, ev):
-        body = ev.msg.body
+            self.test_data =  {
 
-        self.logger.info('datapath         port     '
-                         'rx-pkts  rx-bytes rx-error '
-                         'tx-pkts  tx-bytes tx-error')
-        self.logger.info('---------------- -------- '
-                         '-------- -------- -------- '
-                         '-------- -------- --------')
-        for stat in sorted(body, key=attrgetter('port_no')):
-            self.logger.info('%016x %8x %8d %8d %8d %8d %8d %8d',
-                             ev.msg.datapath.id, stat.port_no,
-                             stat.rx_packets, stat.rx_bytes, stat.rx_errors,
-                             stat.tx_packets, stat.tx_bytes, stat.tx_errors)
+                            'dpid'          :   dpid,
+                            'Src IP Addr'   :   stat.match['ipv4_src'],
+                            'Dst IP Addr'   :   stat.match['ipv4_dst'],
+                            'Src Pt'        :   stat.match['in_port'],
+                            'Dst Pt'        :   stat.instructions[0].actions[0].port,
+                            'Packets'       :   stat.packet_count,
+                            'Duration'      :   stat.duration_sec,
+                            'Flags'         :   stat.flags,
+                            'Bytes'         :   stat.byte_count,
+                            'Proto'         :   stat.match['eth_type'],
+                            'class'         :   ""
+                            
+
+                            }
+            
+            print(self.test_data)
+            test_data_frame = pd.DataFrame(self.test_data,index=[0])
+            test_data_frame = test_data_frame[['Src IP Addr', 'Dst IP Addr', 'Src Pt', 'Dst Pt', 'Packets',
+                                               'Bytes', 'Duration', 'Flags', 'Proto', 'class']]
+            
+            test_x = test_data_frame.iloc[:, 4:9]
+            test_x = np.asarray(test_x)
+            test_x = tf.convert_to_tensor(test_x, np.float32)
+            test_y = test_data_frame.iloc[:, 9]
+            
+            rnn_key = (self.test_data['Proto'], self.test_data['Src IP Addr'],
+                       self.test_data['Dst IP Addr'], self.test_data['Src Pt'])
+            
+            self.rnn_classification[rnn_key] = (self.rnn.predict(test_x,steps=1))
+            
+            
+            self.logger.info('Switch Proto  '
+                         'Src IP  Dst IP  '
+                         'Src Pt  Classification')
+            self.logger.info('------------------------------------------------------------------')
+            self.logger.info("---%s----%s----%s----%s----%s----%s",dpid, rnn_key[0], rnn_key[1],
+                             rnn_key[2], rnn_key[3], self.rnn_classification[rnn_key])
+            
+            
+            # if rnn_key[1] == '10.0.0.1' :
+            if self.rnn_classification[rnn_key] == 1 : # 1 : attacker
+                #or rnn_key[1] == '10.0.0.1': 
+                if rnn_key[1] not in ip_class.ip_class:
+                    ip_class.ip_class.append(rnn_key[1])
+                # self.logger.info("blocked ips: ",ip_class.ip_class)
+                self.logger.info("deleting flows for %s in switch %s", rnn_key[1], dpid)
+                self.del_flow(msg.datapath, rnn_key)
+            self.logger.info("-----------------------------------------------------------------")  
+           
+        
+    def del_flow(self, datapath, match_info):
+        ofproto = datapath.ofproto
+        parser = datapath.ofproto_parser
+        match = parser.OFPMatch(eth_type=match_info[0],
+                                    ipv4_src=match_info[1],
+                                    ipv4_dst=match_info[2],
+                                    in_port =match_info[3]
+                                    )
+
+        mod = parser.OFPFlowMod(datapath=datapath,
+                                command=ofproto.OFPFC_DELETE,
+                                out_port=ofproto.OFPP_ANY,
+                                out_group=ofproto.OFPG_ANY,
+                                match=match)
+        datapath.send_msg(mod)
+ 
+
+
+    # @set_ev_cls(ofp_event.EventOFPPortStatsReply, MAIN_DISPATCHER)
+    # def _port_stats_reply_handler(self, ev):
+    #     body = ev.msg.body
+
+    #     self.logger.info('datapath         port     '
+    #                      'rx-pkts  rx-bytes rx-error '
+    #                      'tx-pkts  tx-bytes tx-error')
+    #     self.logger.info('---------------- -------- '
+    #                      '-------- -------- -------- '
+    #                      '-------- -------- --------')
+    #     for stat in sorted(body, key=attrgetter('port_no')):
+    #         self.logger.info('%016x %8x %8d %8d %8d %8d %8d %8d',
+    #                          ev.msg.datapath.id, stat.port_no,
+    #                          stat.rx_packets, stat.rx_bytes, stat.rx_errors,
+    #                          stat.tx_packets, stat.tx_bytes, stat.tx_errors)

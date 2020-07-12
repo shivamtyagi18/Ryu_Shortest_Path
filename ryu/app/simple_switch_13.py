@@ -21,9 +21,9 @@ from ryu.ofproto import ofproto_v1_3
 from ryu.lib.packet import packet
 from ryu.lib.packet import ethernet
 from ryu.lib.packet import ether_types
-from ryu.lib.packet import ipv4
-from ryu.lib.packet import arp
-from ryu.lib.packet import icmp
+from ryu.lib.packet import ipv4, arp
+import ryu.app.blocked_ip as ip_class
+
 
 
 class SimpleSwitch13(app_manager.RyuApp):
@@ -32,7 +32,6 @@ class SimpleSwitch13(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(SimpleSwitch13, self).__init__(*args, **kwargs)
         self.mac_to_port = {}
-        self.access_table = {} # {(sw,port) :[host1_ip]}
 
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):
@@ -66,21 +65,6 @@ class SimpleSwitch13(app_manager.RyuApp):
             mod = parser.OFPFlowMod(datapath=datapath, priority=priority,
                                     match=match, instructions=inst)
         datapath.send_msg(mod)
-        
-        
-    def register_access_info(self, dpid, in_port, ip, mac):
-        if in_port in self.access_ports[dpid]:
-            if (dpid, in_port) in self.access_table:
-                if self.access_table[(dpid, in_port)] == (ip, mac):
-                    return
-                else:
-                    self.access_table[(dpid, in_port)] = (ip, mac)
-                    return
-            else:
-                self.access_table.setdefault((dpid, in_port), None)
-                self.access_table[(dpid, in_port)] = (ip, mac)
-                return
-            
 
     @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
     def _packet_in_handler(self, ev):
@@ -97,14 +81,7 @@ class SimpleSwitch13(app_manager.RyuApp):
 
         pkt = packet.Packet(msg.data)
         eth = pkt.get_protocols(ethernet.ethernet)[0]
-        ip_pkt = pkt.get_protocols(ipv4.ipv4)
         arp_pkt = pkt.get_protocol(arp.arp)
-        print("------------------------------------------------------------------------------")
-        print("pkt:",pkt)
-        print("ipv4: ",ip_pkt)
-        print("arp: ",arp_pkt)
-        print("mac to port: ",self.mac_to_port)
-        print("------------------------------------------------------------------------------")
 
         if eth.ethertype == ether_types.ETH_TYPE_LLDP:
             # ignore lldp packet
@@ -112,11 +89,15 @@ class SimpleSwitch13(app_manager.RyuApp):
         dst = eth.dst
         src = eth.src
 
-        dpid = format(datapath.id, "d").zfill(16)
+        dpid = datapath.id
         self.mac_to_port.setdefault(dpid, {})
 
-        self.logger.info(" packet in %s %s %s %s", dpid, src, dst, in_port)
-        # print("protocols are",eth)
+        if arp_pkt:
+            # self.logger.info("ARP packet in %s %s", arp_pkt, eth)
+            if(arp_pkt.src_ip in ip_class.ip_class):
+                self.logger.info("Blocking Arp request of blocked ip: %s", arp_pkt.src_ip)
+                return
+            
 
         # learn a mac address to avoid FLOOD next time.
         self.mac_to_port[dpid][src] = in_port
@@ -130,45 +111,29 @@ class SimpleSwitch13(app_manager.RyuApp):
 
         # install a flow to avoid packet_in next time
         if out_port != ofproto.OFPP_FLOOD:
-            
-            
-            # # match = ""
-            # print("------ > ", type(match), match)
-            
-            if isinstance(arp_pkt, arp.arp):
-                self.logger.debug("ARP processing")
-                arp_src_ip = arp_pkt.src_ip
-                arp_dst_ip = arp_pkt.dst_ip
-                mac = arp_pkt.src_mac 
-                self.register_access_info(datapath.id, in_port, arp_src_ip, mac)
-                print("self.register_access_info: ",self.register_access_info) 
-                
-            if isinstance(ip_pkt, ipv4.ipv4):
-                self.logger.debug("IPV4 processing")
+            # check IP Protocol and create a match for IP
+            if eth.ethertype == ether_types.ETH_TYPE_IP:
                 ip = pkt.get_protocol(ipv4.ipv4)
                 srcip = ip.src
                 dstip = ip.dst
+                self.logger.info("IP packet in %s %s %s %s", dpid, srcip, dstip, in_port)
+                self.logger.info("Blocked IPs :  %s",ip_class.ip_class)
+                if (srcip in ip_class.ip_class ):
+                    self.logger.info("IP %s is blocked ",srcip)
+                    return
                 match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP,
                                         ipv4_src=srcip,
                                         ipv4_dst=dstip,
-                                        eth_dst = dst,
-                                        eth_scr = src,
+                                        in_port = in_port
                                         )
-                
-            # else:
-                
-            #     match = parser.OFPMatch(in_port=in_port, eth_dst=dst, eth_src=src)
-            #     self.logger.info(" Not TCP Packet " )
                 # verify if we have a valid buffer_id, if yes avoid to send both
                 # flow_mod & packet_out
+                if msg.buffer_id != ofproto.OFP_NO_BUFFER:
+                    self.add_flow(datapath, 1, match, actions, msg.buffer_id)
+                    return
+                else:
+                    self.add_flow(datapath, 1, match, actions)
             
-            # verify if we have a valid buffer_id, if yes avoid to send both
-            # flow_mod & packet_out
-            if msg.buffer_id != ofproto.OFP_NO_BUFFER:
-                self.add_flow(datapath, 1, match, actions, msg.buffer_id)
-                return
-            else:
-                self.add_flow(datapath, 1, match, actions)
         data = None
         if msg.buffer_id == ofproto.OFP_NO_BUFFER:
             data = msg.data
@@ -176,3 +141,4 @@ class SimpleSwitch13(app_manager.RyuApp):
         out = parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,
                                   in_port=in_port, actions=actions, data=data)
         datapath.send_msg(out)
+        
