@@ -135,7 +135,7 @@ class SimpleSwitch13(app_manager.RyuApp):
                 if (ip.proto == 1):
                     print("ICMP processing")
                     icmp_pkt = pkt.get_protocol(icmp.icmp)
-                    #print("packet details:-----------------------",icmp_pkt)
+                    # print("packet details:-----------------------",icmp_pkt)
                     
                     
                 self.logger.info("IP packet in %s %s %s %s", dpid, srcip, dstip, in_port)
