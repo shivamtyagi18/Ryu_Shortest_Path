@@ -26,7 +26,7 @@ import tensorflow as tf
 # from ryu.app.RNN import recurrentNeuralNetwork
 import os
 import tensorflow as tf
-import ryu.app.blocked_ip as ip_class
+import ryu.app.blocked_ip as ip_class  # list to save blocked IPs
 
 
 class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
@@ -101,7 +101,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                             'Duration'      :   stat.duration_sec,
                             'Flags'         :   stat.flags,
                             'Bytes'         :   stat.byte_count,
-                            'Proto'         :   stat.match['eth_type'],
+                            'Proto'         :   stat.match['ip_proto'],
                             'class'         :   ""
                             
 
@@ -134,12 +134,16 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
             # if rnn_key[1] == '10.0.0.1' :
             if self.rnn_classification[rnn_key] == 1 : # 1 : attacker
                 #or rnn_key[1] == '10.0.0.1': 
-                if rnn_key[1] not in ip_class.ip_class:
+                if rnn_key[1] not in ip_class.ip_class: # if ip already not in blocked ips list then append
                     ip_class.ip_class.append(rnn_key[1])
-                # self.logger.info("blocked ips: ",ip_class.ip_class)
+                    
+                    
                 self.logger.info("deleting flows for %s in switch %s", rnn_key[1], dpid)
                 self.del_flow(msg.datapath, rnn_key)
-            self.logger.info("-----------------------------------------------------------------")  
+            self.logger.info("-----------------------------------------------------------------") 
+             
+    
+    
            
         
     def del_flow(self, datapath, match_info):

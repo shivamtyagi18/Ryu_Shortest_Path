@@ -137,4 +137,312 @@
 0    10.0.0.4    10.0.0.1       2       1       14   1372        15      0   2048      
   Src IP Addr Dst IP Addr  Src Pt  Dst Pt  Packets  Bytes  Duration  Flags  Proto class
 0    10.0.0.1    10.0.0.4       1       2       14   1372        15      0   2048      
-  Src IP Addr Dst IP Addr  Src Pt  Dst Pt  Packe
+  Src IP Addr Dst IP Addr  Src Pt  Dst Pt  Packeipv4(csum=48526,dst='10.0.0.2',flags=2,header_length=5,identification=26904,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=48526,dst='10.0.0.2',flags=2,header_length=5,identification=26904,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=48526,dst='10.0.0.2',flags=2,header_length=5,identification=26904,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=48526,dst='10.0.0.2',flags=2,header_length=5,identification=26904,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=28275,dst='10.0.0.1',flags=0,header_length=5,identification=63539,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=28275,dst='10.0.0.1',flags=0,header_length=5,identification=63539,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=28275,dst='10.0.0.1',flags=0,header_length=5,identification=63539,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=28275,dst='10.0.0.1',flags=0,header_length=5,identification=63539,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=35880,dst='10.0.0.3',flags=2,header_length=5,identification=39549,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=35880,dst='10.0.0.3',flags=2,header_length=5,identification=39549,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=35880,dst='10.0.0.3',flags=2,header_length=5,identification=39549,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=35880,dst='10.0.0.3',flags=2,header_length=5,identification=39549,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=35880,dst='10.0.0.3',flags=2,header_length=5,identification=39549,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=64207,dst='10.0.0.1',flags=0,header_length=5,identification=27606,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=64207,dst='10.0.0.1',flags=0,header_length=5,identification=27606,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=64207,dst='10.0.0.1',flags=0,header_length=5,identification=27606,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=64207,dst='10.0.0.1',flags=0,header_length=5,identification=27606,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=64207,dst='10.0.0.1',flags=0,header_length=5,identification=27606,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23066,dst='10.0.0.4',flags=2,header_length=5,identification=52362,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23066,dst='10.0.0.4',flags=2,header_length=5,identification=52362,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23066,dst='10.0.0.4',flags=2,header_length=5,identification=52362,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23066,dst='10.0.0.4',flags=2,header_length=5,identification=52362,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23066,dst='10.0.0.4',flags=2,header_length=5,identification=52362,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23066,dst='10.0.0.4',flags=2,header_length=5,identification=52362,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23066,dst='10.0.0.4',flags=2,header_length=5,identification=52362,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23066,dst='10.0.0.4',flags=2,header_length=5,identification=52362,offset=0,option=None,proto=1,src='10.0.0.1',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=55797,dst='10.0.0.1',flags=0,header_length=5,identification=36015,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=55797,dst='10.0.0.1',flags=0,header_length=5,identification=36015,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=55797,dst='10.0.0.1',flags=0,header_length=5,identification=36015,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=55797,dst='10.0.0.1',flags=0,header_length=5,identification=36015,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=55797,dst='10.0.0.1',flags=0,header_length=5,identification=36015,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=55797,dst='10.0.0.1',flags=0,header_length=5,identification=36015,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=55797,dst='10.0.0.1',flags=0,header_length=5,identification=36015,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=55797,dst='10.0.0.1',flags=0,header_length=5,identification=36015,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=28068,dst='10.0.0.3',flags=2,header_length=5,identification=47360,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=28068,dst='10.0.0.3',flags=2,header_length=5,identification=47360,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=50400,dst='10.0.0.2',flags=0,header_length=5,identification=41412,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=50400,dst='10.0.0.2',flags=0,header_length=5,identification=41412,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23161,dst='10.0.0.4',flags=2,header_length=5,identification=52266,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23161,dst='10.0.0.4',flags=2,header_length=5,identification=52266,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23161,dst='10.0.0.4',flags=2,header_length=5,identification=52266,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23161,dst='10.0.0.4',flags=2,header_length=5,identification=52266,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=23161,dst='10.0.0.4',flags=2,header_length=5,identification=52266,offset=0,option=None,proto=1,src='10.0.0.2',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=58531,dst='10.0.0.2',flags=0,header_length=5,identification=33280,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=58531,dst='10.0.0.2',flags=0,header_length=5,identification=33280,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=58531,dst='10.0.0.2',flags=0,header_length=5,identification=33280,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=58531,dst='10.0.0.2',flags=0,header_length=5,identification=33280,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=58531,dst='10.0.0.2',flags=0,header_length=5,identification=33280,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=41510,dst='10.0.0.4',flags=2,header_length=5,identification=33916,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=41510,dst='10.0.0.4',flags=2,header_length=5,identification=33916,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=41510,dst='10.0.0.4',flags=2,header_length=5,identification=33916,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=41510,dst='10.0.0.4',flags=2,header_length=5,identification=33916,offset=0,option=None,proto=1,src='10.0.0.3',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=12121,dst='10.0.0.3',flags=0,header_length=5,identification=14154,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=12121,dst='10.0.0.3',flags=0,header_length=5,identification=14154,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=12121,dst='10.0.0.3',flags=0,header_length=5,identification=14154,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+ipv4(csum=12121,dst='10.0.0.3',flags=0,header_length=5,identification=14154,offset=0,option=None,proto=1,src='10.0.0.4',tos=0,total_length=84,ttl=64,version=4)
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 4, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 4, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 4, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 4, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 588, 'Packets': 6, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 588, 'Packets': 6, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 588, 'Packets': 6, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 588, 'Packets': 6, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 34, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 588, 'Packets': 6, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 588, 'Packets': 6, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 34, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 588, 'Packets': 6, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 588, 'Packets': 6, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 34, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 34, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 1764, 'Packets': 18, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 1764, 'Packets': 18, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 1764, 'Packets': 18, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 1764, 'Packets': 18, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 1764, 'Packets': 18, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 1764, 'Packets': 18, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 80, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 1764, 'Packets': 18, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 1764, 'Packets': 18, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 80, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 4802, 'Packets': 49, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 4214, 'Packets': 43, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 4802, 'Packets': 49, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 4214, 'Packets': 43, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 3, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 7, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 4802, 'Packets': 49, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 4214, 'Packets': 43, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 8, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 4214, 'Packets': 43, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 4802, 'Packets': 49, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 139, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 139, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 1, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 882, 'Packets': 9, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 882, 'Packets': 9, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 6, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 4802, 'Packets': 49, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 4214, 'Packets': 43, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.4', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 2, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 4214, 'Packets': 43, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 882, 'Packets': 9, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 4802, 'Packets': 49, 'Dst Pt': 1, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 4, 'class': '', 'Duration': 215, 'Src Pt': 3}
+{'Dst IP Addr': '10.0.0.1', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.2', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 2, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.3', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 3, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 215, 'Src Pt': 1}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.3', 'Proto': 2048, 'Src IP Addr': '10.0.0.2', 'Bytes': 98, 'Packets': 1, 'Dst Pt': 1, 'Flags': 0, 'dpid': 5, 'class': '', 'Duration': 215, 'Src Pt': 2}
+{'Dst IP Addr': '10.0.0.4', 'Proto': 2048, 'Src IP Addr': '10.0.0.1', 'Bytes': 98, 'Packe

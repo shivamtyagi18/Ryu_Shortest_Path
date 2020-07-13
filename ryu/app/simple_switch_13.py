@@ -21,7 +21,7 @@ from ryu.ofproto import ofproto_v1_3
 from ryu.lib.packet import packet
 from ryu.lib.packet import ethernet
 from ryu.lib.packet import ether_types
-from ryu.lib.packet import ipv4, arp
+from ryu.lib.packet import ipv4, arp, udp, tcp, icmp
 import ryu.app.blocked_ip as ip_class
 
 
@@ -116,6 +116,28 @@ class SimpleSwitch13(app_manager.RyuApp):
                 ip = pkt.get_protocol(ipv4.ipv4)
                 srcip = ip.src
                 dstip = ip.dst
+                
+                print("IP packet:",ip)
+                if isinstance(ip, ipv4.ipv4):
+                    print("IPV4 processing")
+                #print("packet details:-----------------------",ip_pkt)
+
+                if (ip.proto == 17):
+                    print("UDP processing")
+                    udp_pkt = pkt.get_protocol(udp.udp)
+                    #print("packet details:-----------------------",udp_pkt)
+
+                if (ip.proto == 6):
+                    print("TCP processing")
+                    tcp_pkt = pkt.get_protocol(tcp.tcp)
+                    #print("packet details:-----------------------",tcp_pkt)
+
+                if (ip.proto == 1):
+                    print("ICMP processing")
+                    icmp_pkt = pkt.get_protocol(icmp.icmp)
+                    #print("packet details:-----------------------",icmp_pkt)
+                    
+                    
                 self.logger.info("IP packet in %s %s %s %s", dpid, srcip, dstip, in_port)
                 self.logger.info("Blocked IPs :  %s",ip_class.ip_class)
                 if (srcip in ip_class.ip_class ):
@@ -124,7 +146,8 @@ class SimpleSwitch13(app_manager.RyuApp):
                 match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP,
                                         ipv4_src=srcip,
                                         ipv4_dst=dstip,
-                                        in_port = in_port
+                                        in_port = in_port,
+                                        ip_proto = ip.proto
                                         )
                 # verify if we have a valid buffer_id, if yes avoid to send both
                 # flow_mod & packet_out
