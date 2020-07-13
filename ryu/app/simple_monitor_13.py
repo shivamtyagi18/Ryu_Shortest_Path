@@ -149,11 +149,13 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
     def del_flow(self, datapath, match_info):
         ofproto = datapath.ofproto
         parser = datapath.ofproto_parser
-        match = parser.OFPMatch(eth_type=match_info[0],
-                                    ipv4_src=match_info[1],
-                                    ipv4_dst=match_info[2],
-                                    in_port =match_info[3]
-                                    )
+        match = parser.OFPMatch(    
+                                eth_type=2048,
+                                ipv4_src=match_info[1],
+                                ipv4_dst=match_info[2],
+                                in_port =match_info[3],
+                                ip_proto=match_info[0],
+                                )
 
         mod = parser.OFPFlowMod(datapath=datapath,
                                 command=ofproto.OFPFC_DELETE,
