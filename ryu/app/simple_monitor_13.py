@@ -141,12 +141,15 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                            .format(rnn_key[1], rnn_key[2], rnn_key[0]))
                         
                 self.logger.info("deleting flows for %s in switch %s", rnn_key[1], dpid)
-                self.del_flow(msg.datapath, rnn_key)
+                self.modify_flow(msg.datapath, rnn_key)
             self.logger.info("-----------------------------------------------------------------") 
                
-    def del_flow(self, datapath, match_info):
+    def modify_flow(self, datapath, match_info):
         ofproto = datapath.ofproto
         parser = datapath.ofproto_parser
+        actions = []
+        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS,
+                                             actions)]
         match = parser.OFPMatch(    
                                 eth_type=2048, # since only ip packets are traced
                                 ipv4_src=match_info[1],
@@ -154,13 +157,23 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                                 in_port =match_info[3],
                                 ip_proto=match_info[0],
                                 )
-
-        mod = parser.OFPFlowMod(datapath=datapath,
-                                command=ofproto.OFPFC_DELETE,
-                                out_port=ofproto.OFPP_ANY,
-                                out_group=ofproto.OFPG_ANY,
-                                match=match)
+        #modifying the rule
+        mod = parser.OFPFlowMod(datapath, 0, 0,
+                                0, ofproto.OFPFC_ADD,
+                                0, 0,
+                                1, ofproto.OFP_NO_BUFFER,
+                                ofproto.OFPP_ANY, ofproto.OFPG_ANY,
+                                ofproto.OFPFF_SEND_FLOW_REM,
+                                match, inst)
         datapath.send_msg(mod)
+        
+        #deleting the rule
+        # mod = parser.OFPFlowMod(datapath=datapath,
+        #                         command=ofproto.OFPFC_DELETE,
+        #                         out_port=ofproto.OFPP_ANY,
+        #                         out_group=ofproto.OFPG_ANY,
+        #                         match=match,
+        #                         instructions = inst)
  
 
 
