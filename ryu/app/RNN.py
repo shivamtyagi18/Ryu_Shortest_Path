@@ -24,7 +24,7 @@ def preprocessing(N):
     train_data = shuffle(combined_train_data)
     train_data = train_data.reindex(range(0, N))
     train_data = train_data[['Src IP Addr', 'Dst IP Addr', 'Src Pt', 'Dst Pt', 'Packets', 
-                             'Bytes', 'Duration', 'Flags', 'Proto', 'class']]
+                             'Bytes', 'Duration', 'Proto', 'class']]
     
     # mp = {}
     # id = 0
@@ -48,17 +48,17 @@ def preprocessing(N):
         
     # print("Done with Dst IP Addr encoding!")
 
-    mp = {}
-    id = 0
-    for ft in train_data['Flags']:
-        if ft not in mp:
-            mp[ft] = id
-            id += 1
+    # mp = {}
+    # id = 0
+    # for ft in train_data['Flags']:
+    #     if ft not in mp:
+    #         mp[ft] = id
+    #         id += 1
             
-    for i, e in enumerate(train_data['Flags']):
-        train_data['Flags'] = mp[e]
+    # for i, e in enumerate(train_data['Flags']):
+    #     train_data['Flags'] = mp[e]
         
-    print("Done with Flags encoding!")
+    # print("Done with Flags encoding!")
     
     mp = {}
     id = 0
@@ -66,6 +66,17 @@ def preprocessing(N):
         if ft not in mp:
             mp[ft] = id
             id += 1
+        #['TCP  ' 'UDP  ' 'IGMP ' 'ICMP ']
+        if ft is "TCP":
+            mp[ft] = 6
+        elif ft is "UDP":
+            mp[ft] = 17
+        elif ft is "IGMP":
+            mp[ft] = 2
+        elif ft is "ICMP":
+            mp[ft] = 1
+        else:
+            mp[ft] = 0
             
     for i, e in enumerate(train_data['Proto']):
         train_data['Proto'] = mp[e]
@@ -79,8 +90,8 @@ train_data = preprocessing(N)
 
 
 def recurrentNeuralNetwork(train_data, N):
-    train_x = train_data.iloc[:, 4:9]
-    train_y = train_data.iloc[:, 9]
+    train_x = train_data.iloc[:, 4:8]
+    train_y = train_data.iloc[:, 8]
 
     train_x = train_x.reindex(range(0, N))
     train_y = train_y.reindex(range(0, N))
@@ -132,7 +143,7 @@ def recurrentNeuralNetwork(train_data, N):
     #             metrics = ['accuracy'])
     
     model = Sequential()
-    model.add(Dense(8, input_dim=5, activation='relu'))
+    model.add(Dense(8, input_dim=4, activation='relu'))
     model.add(Dense(8, activation='relu'))
     model.add(Dense(1, activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam',metrics = ['accuracy'])
@@ -146,7 +157,7 @@ def recurrentNeuralNetwork(train_data, N):
     train_y = tf.convert_to_tensor(train_y, np.float32)
 
     # feed in training and test data
-    model.fit(train_x, train_y, epochs = 3, steps_per_epoch = 500)
+    model.fit(train_x, train_y, epochs = 20, steps_per_epoch = 1000)
     
     model.save("myModel")
 

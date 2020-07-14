@@ -39,6 +39,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         self.test_data = {}
         self.test_data_frame = pd.DataFrame()
         self.rnn_classification = {}
+        # self.f= open("snortRules.txt","w+")
         
         
         # self.sess = tf.Session()
@@ -83,7 +84,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         msg = ev.msg
         body = ev.msg.body
         dpid = msg.datapath.id
-        # self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/trainedModels/model89%") 
+        # self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/trainedModels/model87%") 
         self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/myModel") 
         
         for stat in sorted([flow for flow in body if flow.priority == 1],
@@ -110,12 +111,12 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
             print(self.test_data)
             test_data_frame = pd.DataFrame(self.test_data,index=[0])
             test_data_frame = test_data_frame[['Src IP Addr', 'Dst IP Addr', 'Src Pt', 'Dst Pt', 'Packets',
-                                               'Bytes', 'Duration', 'Flags', 'Proto', 'class']]
+                                               'Bytes', 'Duration', 'Proto', 'class']]
             
-            test_x = test_data_frame.iloc[:, 4:9]
+            test_x = test_data_frame.iloc[:, 4:8]
             test_x = np.asarray(test_x)
             test_x = tf.convert_to_tensor(test_x, np.float32)
-            test_y = test_data_frame.iloc[:, 9]
+            test_y = test_data_frame.iloc[:, 8]
             
             rnn_key = (self.test_data['Proto'], self.test_data['Src IP Addr'],
                        self.test_data['Dst IP Addr'], self.test_data['Src Pt'])
@@ -139,6 +140,9 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                     print ('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; 
                            icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;)'''
                            .format(rnn_key[1], rnn_key[2], rnn_key[0]))
+                    
+                    with open("snortRules.txt", "a+") as myfile:
+                        myfile.write('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;)'''.format(rnn_key[1], rnn_key[2], rnn_key[0]))
                         
                 self.logger.info("deleting flows for %s in switch %s", rnn_key[1], dpid)
                 self.modify_flow(msg.datapath, rnn_key)
