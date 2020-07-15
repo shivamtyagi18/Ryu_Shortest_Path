@@ -117,7 +117,7 @@ class SimpleSwitch13(app_manager.RyuApp):
                 srcip = ip.src
                 dstip = ip.dst
                 
-                print("IP packet:",ip)
+                # print("IP packet:",ip)
                 if isinstance(ip, ipv4.ipv4):
                     print("IPV4 processing")
                 #print("packet details:-----------------------",ip_pkt)
@@ -138,7 +138,7 @@ class SimpleSwitch13(app_manager.RyuApp):
                     # print("packet details:-----------------------",icmp_pkt)
                     
                     
-                self.logger.info("IP packet in %s %s %s %s", dpid, srcip, dstip, in_port)
+                # self.logger.info("IP packet in %s %s %s %s", dpid, srcip, dstip, in_port)
                 self.logger.info("Blocked IPs :  %s",ip_class.ip_class)
                 if (srcip in ip_class.ip_class ):
                     self.logger.info("IP %s is blocked ",srcip)
