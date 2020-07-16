@@ -133,19 +133,19 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
             
             
             # if rnn_key[1] == '10.0.0.2' :
-            if self.rnn_classification[rnn_key] == 1 : # 1 : attacker
-                #or rnn_key[1] == '10.0.0.1': 
-                if rnn_key[1] not in ip_class.ip_class: # if ip already not in blocked ips list then append
-                    ip_class.ip_class.append(rnn_key[1])
-                    print ('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; 
-                           icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;)'''
-                           .format(rnn_key[1], rnn_key[2], rnn_key[0]))
+            # if self.rnn_classification[rnn_key] == 1 : # 1 : attacker
+            #     #or rnn_key[1] == '10.0.0.1': 
+            #     if rnn_key[1] not in ip_class.ip_class: # if ip already not in blocked ips list then append
+            #         ip_class.ip_class.append(rnn_key[1])
+            #         print ('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; 
+            #                icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;)'''
+            #                .format(rnn_key[1], rnn_key[2], rnn_key[0]))
                     
-                    with open("snortRules.txt", "a+") as myfile:
-                        myfile.write('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;) \n'''.format(rnn_key[1], rnn_key[2], rnn_key[0]))
+            #         with open("snortRules.txt", "a+") as myfile:
+            #             myfile.write('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;) \n'''.format(rnn_key[1], rnn_key[2], rnn_key[0]))
                         
-                self.logger.info("deleting flows for %s in switch %s", rnn_key[1], dpid)
-                self.modify_flow(msg.datapath, rnn_key)
+            #     self.logger.info("Modifying flows for %s in switch %s", rnn_key[1], dpid)
+            #     self.modify_flow(msg.datapath, rnn_key)
             self.logger.info("-----------------------------------------------------------------") 
                
     def modify_flow(self, datapath, match_info):

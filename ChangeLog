@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+* better snortRule.txt
+* snortRule textfile generation and updation added
+* changed the function to modify flow rule instead of deleting
+* printing basic snort rule in monitor module
+* ip\_protoocl value updated in match in delete flows function
+* ip\_protoocl value is added in match to take icmp, tcp and udp values
+* voice commands, RNN integration final app. Next: Snort rule creation
 * changes tried for IDS project test data creation
 * added shortest path routing, monitoring of flows, arp flooding issue resolved, stp protocol use, learning topology, updation of hashmap on adding and deleting switches ports/links
 * updated jsonrpc.Session call to have correct arguments for latest version of ovs

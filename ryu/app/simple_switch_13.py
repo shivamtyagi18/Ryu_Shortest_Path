@@ -32,6 +32,7 @@ class SimpleSwitch13(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(SimpleSwitch13, self).__init__(*args, **kwargs)
         self.mac_to_port = {}
+        self.arp_req_map = {}
 
     @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
     def switch_features_handler(self, ev):
@@ -91,6 +92,7 @@ class SimpleSwitch13(app_manager.RyuApp):
 
         dpid = datapath.id
         self.mac_to_port.setdefault(dpid, {})
+        self.arp_req_map.setdefault(dpid, {})
 
         if arp_pkt:
             # self.logger.info("ARP packet in %s %s", arp_pkt, eth)
@@ -98,15 +100,28 @@ class SimpleSwitch13(app_manager.RyuApp):
                 self.logger.info("Blocking Arp request of blocked ip: %s", arp_pkt.src_ip)
                 return
             
-
+        
         # learn a mac address to avoid FLOOD next time.
         self.mac_to_port[dpid][src] = in_port
 
         if dst in self.mac_to_port[dpid]:
             out_port = self.mac_to_port[dpid][dst]
         else:
-            out_port = ofproto.OFPP_FLOOD
-
+            if arp_pkt:
+                print("ARP packet: (dpid,src,dst_ip)-inport = ",dpid,src,arp_pkt.dst_ip,in_port)
+                if (src,arp_pkt.dst_ip) in self.arp_req_map[dpid] :
+                    if self.arp_req_map[dpid][(src,arp_pkt.dst_ip)] != in_port :
+                        print(in_port," not same as ", self.arp_req_map[dpid][(src,arp_pkt.dst_ip)])
+                        return None
+                else:
+                    print("new entry added in arp req map ")
+                    self.arp_req_map[dpid][(src,arp_pkt.dst_ip)] = in_port
+                    print("arp req map:",len(self.arp_req_map[dpid]))    
+                    print(self.arp_req_map)
+                out_port = ofproto.OFPP_FLOOD
+            print("flood",out_port)
+        
+         
         actions = [parser.OFPActionOutput(out_port)]
 
         # install a flow to avoid packet_in next time
