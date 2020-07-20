@@ -27,6 +27,7 @@ import tensorflow as tf
 import os
 import tensorflow as tf
 import ryu.app.blocked_ip as ip_class  # list to save blocked IPs
+import json
 
 
 class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
@@ -39,6 +40,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         self.test_data = {}
         self.test_data_frame = pd.DataFrame()
         self.rnn_classification = {}
+        self.Q_table = {}
         # self.f= open("snortRules.txt","w+")
         
         
@@ -86,6 +88,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         dpid = msg.datapath.id
         # self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/trainedModels/model87%") 
         self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/myModel") 
+        self.Q_table.setdefault(dpid, {})
         
         for stat in sorted([flow for flow in body if flow.priority == 1],
                            key=lambda flow: (flow.match['in_port'],
@@ -122,8 +125,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                        self.test_data['Dst IP Addr'], self.test_data['Src Pt'])
             
             self.rnn_classification[rnn_key] = (self.rnn.predict(test_x,steps=1))
-            
-            
+
             self.logger.info('Switch Proto  '
                          'Src IP  Dst IP  '
                          'Src Pt  Classification')
@@ -132,22 +134,37 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                              rnn_key[2], rnn_key[3], self.rnn_classification[rnn_key])
             
             
-            # if rnn_key[1] == '10.0.0.2' :
-            # if self.rnn_classification[rnn_key] == 1 : # 1 : attacker
-            #     #or rnn_key[1] == '10.0.0.1': 
-            #     if rnn_key[1] not in ip_class.ip_class: # if ip already not in blocked ips list then append
-            #         ip_class.ip_class.append(rnn_key[1])
-            #         print ('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; 
-            #                icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;)'''
-            #                .format(rnn_key[1], rnn_key[2], rnn_key[0]))
+            if rnn_key[1] in ['10.0.0.4','10.0.0.2'] :
+            # if self.rnn_classification[rnn_key] == 1 : # 1 : attacker 
+                if rnn_key[1] not in ip_class.ip_class: # if ip already not in blocked ips list then append
+                    ip_class.ip_class.append(rnn_key[1])
+                    print ('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; 
+                           icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;)'''
+                           .format(rnn_key[1], rnn_key[2], rnn_key[0]))
                     
-            #         with open("snortRules.txt", "a+") as myfile:
-            #             myfile.write('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;) \n'''.format(rnn_key[1], rnn_key[2], rnn_key[0]))
+                    #writing a snort rule to text file
+                    with open("snortRules.txt", "a+") as myfile:
+                        myfile.write('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;) \n'''.format(rnn_key[1], rnn_key[2], rnn_key[0]))
                         
-            #     self.logger.info("Modifying flows for %s in switch %s", rnn_key[1], dpid)
-            #     self.modify_flow(msg.datapath, rnn_key)
+                self.logger.info("Modifying flows for %s in switch %s", rnn_key[1], dpid)
+                self.modify_flow(msg.datapath, rnn_key)
             self.logger.info("-----------------------------------------------------------------") 
-               
+    
+    
+    
+    def next_number(self,start,Q_table):
+        next_node = -1
+        er = 0.5
+        if self.action_selection_approach == "epsilon-greedy" or self.action_selection_approach == "epsilon-greedy-decay":
+            self.random_value=random.uniform(0,1)    
+            if self.random_value<er:
+                    sample=self.topology[start]
+            else:
+                    sample=np.where(Q_table[start,]==np.max(Q_table[start,]))[1]            
+            next_node=int(np.random.choice(list(sample),1)) 
+            
+        return next_node
+    
     def modify_flow(self, datapath, match_info):
         ofproto = datapath.ofproto
         parser = datapath.ofproto_parser

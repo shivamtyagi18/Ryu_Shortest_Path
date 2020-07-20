@@ -14,3 +14,4 @@ alert icmp 10.0.0.1 any -> 10.0.0.4 any (msg: "Suspicious ICMP packet from 10.0.
 alert icmp 10.0.0.4 any -> 10.0.0.1 any (msg: "Suspicious ICMP packet from 10.0.0.4 to 10.0.0.1 with type 1!"; icode:0; itype:1; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;) 
 alert icmp 10.0.0.1 any -> 10.0.0.3 any (msg: "Suspicious ICMP packet from 10.0.0.1 to 10.0.0.3 with type 1!"; icode:0; itype:1; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;) 
 alert icmp 10.0.0.4 any -> 10.0.0.1 any (msg: "Suspicious ICMP packet from 10.0.0.4 to 10.0.0.1 with type 1!"; icode:0; itype:1; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;) 
+alert icmp 10.0.0.4 any -> 10.0.0.1 any (msg: "Suspicious ICMP packet from 10.0.0.4 to 10.0.0.1 with type 1!"; icode:0; itype:1; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;) 
