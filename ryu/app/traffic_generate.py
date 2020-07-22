@@ -17,13 +17,13 @@ d=IP(ttl=64)/UDP()
 e=IP(ttl=64)/UDP()
 
 a.src="10.0.0.2"
-a.dst="10.0.0.15"
+a.dst="10.0.0.4"
 
 b.src="10.0.0.4"
-b.dst="10.0.0.16"
+b.dst="10.0.0.1"
 
 c.src="10.0.0.3"
-c.dst="10.0.0.12"
+c.dst="10.0.0.2"
 count = 200000
 traffic_count = count
 #th_a = threading.Thread(target=send_packet, args=(a,traffic_count))

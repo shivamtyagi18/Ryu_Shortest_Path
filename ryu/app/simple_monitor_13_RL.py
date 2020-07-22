@@ -41,6 +41,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         self.test_data_frame = pd.DataFrame()
         self.rnn_classification = {}
         self.Q_table = {}
+        self.Reward_table = {}
         # self.f= open("snortRules.txt","w+")
         
         
@@ -89,6 +90,14 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         # self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/trainedModels/model87%") 
         self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/myModel") 
         self.Q_table.setdefault(dpid, {})
+        self.Reward_table.setdefault(dpid, {})
+        
+        er=0.5
+        lr=0.8
+        discount=0.8                
+        gamma=0.7
+        iterations=1500
+        max_value = -100
         
         for stat in sorted([flow for flow in body if flow.priority == 1],
                            key=lambda flow: (flow.match['in_port'],
@@ -130,11 +139,8 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
             Q_table_key = (self.test_data['Src IP Addr'],self.test_data['Dst IP Addr'])
             Q_table_key_reverse = (self.test_data['Dst IP Addr'],self.test_data['Src IP Addr'])
             
-            self.Q_table[self.test_data['dpid']][Q_table_key] = self.test_data['Packets']
-            
-            print("Q_table--------------------------------------------------------------")
-            values = [{"Switch": str(k), "Src-Dst": str(v)} for k, v in self.Q_table.items()]
-            print(json.dumps(values, indent=4))
+            # self.Q_table[self.test_data['dpid']][Q_table_key] = self.test_data['Packets']
+            # self.Reward_table[self.test_data['dpid']][Q_table_key] = 0
             
             #-----------------------------Q Table Part End---------------------------------------------
             
@@ -146,33 +152,55 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                              rnn_key[2], rnn_key[3], self.rnn_classification[rnn_key])
             
             
-            if rnn_key[1] in ['10.0.0.4','10.0.0.2'] :
-            # if self.rnn_classification[rnn_key] == 1 : # 1 : attacker 
-                if rnn_key[1] not in ip_class.ip_class: # if ip already not in blocked ips list then append
-                    ip_class.ip_class.append(rnn_key[1])
-                    
+            # if rnn_key[1] in ['10.0.0.4','10.0.0.2'] :
+            if self.rnn_classification[rnn_key] > 0.8 : # 1 : if attack detected penalise
+                if Q_table_key in self.Reward_table[self.test_data['dpid']].keys():
+                    self.Reward_table[self.test_data['dpid']][Q_table_key] -= 100
+                else:   
                     # penalising Q_table
-                    self.Q_table[self.test_data['dpid']][Q_table_key] -= 100
-                    # self.Q_table[self.test_data['dpid']][Q_table_key_reverse] -= self.test_data['Packets']
-                    print("Q entry after penalising: ",self.Q_table[self.test_data['dpid']][Q_table_key])
+                    self.Reward_table[self.test_data['dpid']][Q_table_key] = -100
+                    
+            else:
+                if Q_table_key in self.Reward_table[self.test_data['dpid']].keys():
+                    self.Reward_table[self.test_data['dpid']][Q_table_key]  += 50
+                else:
+                    self.Reward_table[self.test_data['dpid']][Q_table_key] = 50
+            
+            if Q_table_key in self.Q_table[self.test_data['dpid']].keys():
+                #max_value = self.test_data['dpid'] for switch where self.Q_table[self.test_data['dpid']][Q_table_key] is max
+                if max_value < self.Q_table[self.test_data['dpid']][Q_table_key]:
+                    max_value = self.Q_table[self.test_data['dpid']][Q_table_key]
+                    
+                self.Q_table[self.test_data['dpid']][Q_table_key] = int((1-lr) * 
+                                                                self.Q_table[self.test_data['dpid']][Q_table_key] + 
+                                                                lr * (self.Reward_table[self.test_data['dpid']][Q_table_key]
+                                                                    + discount * max_value))
+            else:
+                self.Q_table[self.test_data['dpid']][Q_table_key] = int((1-lr) * 
+                                                                0 + 
+                                                                lr * (self.Reward_table[self.test_data['dpid']][Q_table_key]
+                                                                    + discount * max_value))
+                
+            
+            
+            print("Q_table--------------------------------------------------------------")
+            values = [{"Switch": str(k), "Src-Dst": str(v)} for k, v in self.Q_table.items()]
+            print(json.dumps(values, indent=4))
+            # if rnn_key[1] not in ip_class.ip_class: # if ip already not in blocked ips list then append
+            #         ip_class.ip_class.append(rnn_key[1])
+                
+            '''
+                Compare the predicted probability with a threashold probability
+                Reward[dpid](src,dst) = Reward or Penalty
+                New Q_table[dpid](src,dst) = f( Reward[dpid](src,dst), Q_table[dpid](src,dst) )
+                
+            '''
+ 
+            # print("Q entry after reward / penalising: ",self.Q_table[self.test_data['dpid']][Q_table_key])
                         
                 # self.logger.info("Modifying flows for %s in switch %s", rnn_key[1], dpid)
                 # self.modify_flow(msg.datapath, rnn_key)
             self.logger.info("-----------------------------------------------------------------") 
-    
-    
-    def next_number(self,start,Q_table):
-        next_node = -1
-        er = 0.5
-        if self.action_selection_approach == "epsilon-greedy" or self.action_selection_approach == "epsilon-greedy-decay":
-            self.random_value=random.uniform(0,1)    
-            if self.random_value<er:
-                    sample=self.topology[start]
-            else:
-                    sample=np.where(Q_table[start,]==np.max(Q_table[start,]))[1]            
-            next_node=int(np.random.choice(list(sample),1)) 
-            
-        return next_node
     
     def modify_flow(self, datapath, match_info):
         ofproto = datapath.ofproto
@@ -196,6 +224,19 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                                 ofproto.OFPFF_SEND_FLOW_REM,
                                 match, inst)
         datapath.send_msg(mod)
+        
+          # def next_number(self,start,Q_table):
+    #     next_node = -1
+    #     er = 0.5
+    #     if self.action_selection_approach == "epsilon-greedy" or self.action_selection_approach == "epsilon-greedy-decay":
+    #         self.random_value=random.uniform(0,1)    
+    #         if self.random_value<er:
+    #                 sample=self.topology[start]
+    #         else:
+    #                 sample=np.where(Q_table[start,]==np.max(Q_table[start,]))[1]            
+    #         next_node=int(np.random.choice(list(sample),1)) 
+            
+    #     return next_node
         
         #deleting the rule
         # mod = parser.OFPFlowMod(datapath=datapath,

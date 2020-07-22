@@ -134,8 +134,8 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                              rnn_key[2], rnn_key[3], self.rnn_classification[rnn_key])
             
             
-            if rnn_key[1] in ['10.0.0.4','10.0.0.2'] :
-            # if self.rnn_classification[rnn_key] == 1 : # 1 : attacker 
+            # if rnn_key[1] in ['10.0.0.4','10.0.0.2'] :
+            if self.rnn_classification[rnn_key] > 0.8 : # 1 : attacker 
                 if rnn_key[1] not in ip_class.ip_class: # if ip already not in blocked ips list then append
                     ip_class.ip_class.append(rnn_key[1])
                     print ('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; 
