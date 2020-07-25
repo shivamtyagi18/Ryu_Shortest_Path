@@ -52,13 +52,13 @@ class SimpleSwitchSnort(app_manager.RyuApp):
         _icmp = pkt.get_protocol(icmp.icmp)
 
         if _icmp:
-            self.logger.info("%r", _icmp)
+            self.logger.info("%r \n", _icmp)
 
         if _ipv4:
-            self.logger.info("%r", _ipv4)
+            self.logger.info("%r \n", _ipv4)
 
         if eth:
-            self.logger.info("%r", eth)
+            self.logger.info("%r \n", eth)
 
         # for p in pkt.protocols:
         #     if hasattr(p, 'protocol_name') is False:

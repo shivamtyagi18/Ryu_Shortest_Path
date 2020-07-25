@@ -1,0 +1,5 @@
+
+alert ip 10.0.0.1 1 -> 10.0.0.2 2 (msg: "Suspicious ICMP packet from 10.0.0.1 to 10.0.0.2!"; dsize: <98; ip_proto:1; classtype:trojan-activity; metadata:service http; sid:1000002;)
+alert ip 10.0.0.2 2 -> 10.0.0.1 1 (msg: "Suspicious ICMP packet from 10.0.0.2 to 10.0.0.1!"; dsize: <98; ip_proto:1; classtype:trojan-activity; metadata:service http; sid:1000003;)
+alert ip 10.0.0.2 1 -> 10.0.0.1 2 (msg: "Suspicious ICMP packet from 10.0.0.2 to 10.0.0.1!"; dsize: <98; ip_proto:1; classtype:trojan-activity; metadata:service http; sid:1000004;)
+alert ip 10.0.0.1 2 -> 10.0.0.2 1 (msg: "Suspicious ICMP packet from 10.0.0.1 to 10.0.0.2!"; dsize: <98; ip_proto:1; classtype:trojan-activity; metadata:service http; sid:1000005;)

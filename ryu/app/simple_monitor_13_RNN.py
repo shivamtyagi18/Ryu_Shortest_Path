@@ -25,7 +25,6 @@ import pandas as pd
 import tensorflow as tf
 # from ryu.app.RNN import recurrentNeuralNetwork
 import os
-import tensorflow as tf
 import ryu.app.blocked_ip as ip_class  # list to save blocked IPs
 import json
 
@@ -41,6 +40,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         self.test_data_frame = pd.DataFrame()
         self.rnn_classification = {}
         self.Q_table = {}
+        self.snort_id  = 1000001
         # self.f= open("snortRules.txt","w+")
         
         
@@ -93,7 +93,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         for stat in sorted([flow for flow in body if flow.priority == 1],
                            key=lambda flow: (flow.match['in_port'],
                                              flow.match['ipv4_dst'])):
-
+            print(stat)
             self.test_data =  {
 
                             'dpid'          :   dpid,
@@ -111,7 +111,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
 
                             }
             
-            # print(self.test_data)
+            
             test_data_frame = pd.DataFrame(self.test_data,index=[0])
             test_data_frame = test_data_frame[['Src IP Addr', 'Dst IP Addr', 'Src Pt', 'Dst Pt', 'Packets',
                                                'Bytes', 'Duration', 'Proto', 'class']]
@@ -136,18 +136,29 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
             
             # if rnn_key[1] in ['10.0.0.4','10.0.0.2'] :
             if self.rnn_classification[rnn_key] > 0.8 : # 1 : attacker 
-                if rnn_key[1] not in ip_class.ip_class: # if ip already not in blocked ips list then append
-                    ip_class.ip_class.append(rnn_key[1])
-                    print ('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; 
-                           icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;)'''
-                           .format(rnn_key[1], rnn_key[2], rnn_key[0]))
+                #  rnn_key[1] not in ip_class.ip_class and 
+                if self.test_data['Packets'] > 0: # if ip already not in blocked ips list then append
+                    # ip_class.ip_class.append(rnn_key[1])
+                    self.snort_id += 1
+                    print ('''alert ip {0} {1} -> {2} {3} (msg: \"Suspicious ICMP packet from {0} to {2} with type {2}!\"; 
+                           reference:monitor_13; content:"Test_Data"; dsize: <{4}; ip_proto:{6}; classtype:trojan-activity;\
+                           metadata:service http; sid:{5}; rev:1;)'''
+                           .format(self.test_data['Src IP Addr'], self.test_data['Src Pt'],
+                                   self.test_data['Dst IP Addr'], self.test_data['Dst Pt'],
+                                   int(self.test_data['Bytes']/self.test_data['Packets']), 
+                                   self.snort_id, self.test_data['Proto'] )
+                           )
                     
                     #writing a snort rule to text file
-                    with open("snortRules.txt", "a+") as myfile:
-                        myfile.write('''alert icmp {0} any -> {1} any (msg: \"Suspicious ICMP packet from {0} to {1} with type {2}!\"; icode:0; itype:{2}; reference:monitor_13; classtype:trojan-activity; sid:xxxx; rev:1;) \n'''.format(rnn_key[1], rnn_key[2], rnn_key[0]))
-                        
+                    with open("snortRules.rules", "a+") as myfile:
+                        myfile.write('''alert ip {0} {1} -> {2} {3} (msg: \"Suspicious ICMP packet from {0} to {2}!\"; dsize: <{4}; ip_proto:{6}; classtype:trojan-activity; metadata:service http; sid:{5};)\n'''
+                        .format(self.test_data['Src IP Addr'], self.test_data['Src Pt'],
+                                self.test_data['Dst IP Addr'], self.test_data['Dst Pt'],
+                                int(self.test_data['Bytes']/self.test_data['Packets']), 
+                                self.snort_id, self.test_data['Proto']))
+                            
                 self.logger.info("Modifying flows for %s in switch %s", rnn_key[1], dpid)
-                self.modify_flow(msg.datapath, rnn_key)
+                # self.modify_flow(msg.datapath, rnn_key)
             self.logger.info("-----------------------------------------------------------------") 
     
     
