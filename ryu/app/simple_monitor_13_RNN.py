@@ -87,7 +87,8 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         body = ev.msg.body
         dpid = msg.datapath.id
         # self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/trainedModels/model87%") 
-        self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/myModel") 
+        self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/myModel")
+        # self.rnn = tf.keras.models.load_model("/users/shivam18/Ryu_Shortest_Path/ryu/app/myModel") 
         self.Q_table.setdefault(dpid, {})
         
         for stat in sorted([flow for flow in body if flow.priority == 1],
