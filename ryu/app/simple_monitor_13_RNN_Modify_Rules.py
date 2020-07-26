@@ -27,6 +27,7 @@ import tensorflow as tf
 import os
 import ryu.app.blocked_ip as ip_class  # list to save blocked IPs
 import json
+import time
 
 
 class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
@@ -41,6 +42,9 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         self.rnn_classification = {}
         self.Q_table = {}
         self.snort_id  = 1000001
+        self.total_time = {}
+        self.total_packets = {}
+        self.flow_count = {}
         # self.f= open("snortRules.txt","w+")
         
         
@@ -90,13 +94,18 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
         self.rnn = tf.keras.models.load_model("/home/shivamtyagi/ryu/ryu/app/myModel")
         # self.rnn = tf.keras.models.load_model("/users/shivam18/Ryu_Shortest_Path/ryu/app/myModel") 
         self.Q_table.setdefault(dpid, {})
+        self.total_time.setdefault(dpid, {})
+        self.total_packets.setdefault(dpid, {})
+        self.flow_count.setdefault(dpid, {})
+        packet_count = 0
+        flow_count = 0
         
+        start_time = time.time()
         for stat in sorted([flow for flow in body if flow.priority == 1],
                            key=lambda flow: (flow.match['in_port'],
                                              flow.match['ipv4_dst'])):
-            print(stat)
+            # print(stat)
             self.test_data =  {
-
                             'dpid'          :   dpid,
                             'Src IP Addr'   :   stat.match['ipv4_src'],
                             'Dst IP Addr'   :   stat.match['ipv4_dst'],
@@ -108,10 +117,7 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
                             'Bytes'         :   stat.byte_count,
                             'Proto'         :   stat.match['ip_proto'],
                             'class'         :   ""
-                            
-
                             }
-            
             
             test_data_frame = pd.DataFrame(self.test_data,index=[0])
             test_data_frame = test_data_frame[['Src IP Addr', 'Dst IP Addr', 'Src Pt', 'Dst Pt', 'Packets',
@@ -123,59 +129,37 @@ class SimpleMonitor13(simple_switch_13.SimpleSwitch13):
             test_y = test_data_frame.iloc[:, 8]
             
             rnn_key = (self.test_data['Proto'], self.test_data['Src IP Addr'],
-                       self.test_data['Dst IP Addr'], self.test_data['Src Pt'])
+                       self.test_data['Dst IP Addr'], self.test_data['Src Pt'], self.test_data['Dst Pt'])
             
             self.rnn_classification[rnn_key] = (self.rnn.predict(test_x,steps=1))
 
             self.logger.info('Switch Proto  '
                          'Src IP  Dst IP  '
-                         'Src Pt  Classification')
+                         'Src Pt  Dst Pt  Classification')
             self.logger.info('------------------------------------------------------------------')
-            self.logger.info("---%s----%s----%s----%s----%s----%s",dpid, rnn_key[0], rnn_key[1],
-                             rnn_key[2], rnn_key[3], self.rnn_classification[rnn_key])
-            
+            self.logger.info("---%s----%s----%s----%s----%s----%s---%s",dpid, rnn_key[0], rnn_key[1],
+                             rnn_key[2], rnn_key[3], rnn_key[4], self.rnn_classification[rnn_key])
             
             # if rnn_key[1] in ['10.0.0.4','10.0.0.2'] :
             if self.rnn_classification[rnn_key] > 0.8 : # 1 : attacker 
-                #  rnn_key[1] not in ip_class.ip_class and 
-                if self.test_data['Packets'] > 0: # if ip already not in blocked ips list then append
-                    # ip_class.ip_class.append(rnn_key[1])
-                    self.snort_id += 1
-                    print ('''alert ip {0} {1} -> {2} {3} (msg: \"Suspicious ICMP packet from {0} to {2} with type {2}!\"; 
-                           reference:monitor_13; content:"Test_Data"; dsize: <{4}; ip_proto:{6}; classtype:trojan-activity;\
-                           metadata:service http; sid:{5}; rev:1;)'''
-                           .format(self.test_data['Src IP Addr'], self.test_data['Src Pt'],
-                                   self.test_data['Dst IP Addr'], self.test_data['Dst Pt'],
-                                   int(self.test_data['Bytes']/self.test_data['Packets']), 
-                                   self.snort_id, self.test_data['Proto'] )
-                           )
-                    
-                    #writing a snort rule to text file
-                    with open("snortRules.rules", "a+") as myfile:
-                        myfile.write('''alert ip {0} {1} -> {2} {3} (msg: \"Suspicious ICMP packet from {0} to {2}!\"; dsize: <{4}; ip_proto:{6}; classtype:trojan-activity; metadata:service http; sid:{5};)\n'''
-                        .format(self.test_data['Src IP Addr'], self.test_data['Src Pt'],
-                                self.test_data['Dst IP Addr'], self.test_data['Dst Pt'],
-                                int(self.test_data['Bytes']/self.test_data['Packets']), 
-                                self.snort_id, self.test_data['Proto']))
                             
-                self.logger.info("Modifying flows for %s in switch %s", rnn_key[1], dpid)
-                # self.modify_flow(msg.datapath, rnn_key)
+                # self.logger.info("Modifying flows for %s in switch %s", rnn_key[1], dpid)
+                self.modify_flow(msg.datapath, rnn_key)
+            packet_count += self.test_data['Packets']
+            flow_count += 1 # counting number of flow rules
             self.logger.info("-----------------------------------------------------------------") 
-    
-    
-    
-    def next_number(self,start,Q_table):
-        next_node = -1
-        er = 0.5
-        if self.action_selection_approach == "epsilon-greedy" or self.action_selection_approach == "epsilon-greedy-decay":
-            self.random_value=random.uniform(0,1)    
-            if self.random_value<er:
-                    sample=self.topology[start]
-            else:
-                    sample=np.where(Q_table[start,]==np.max(Q_table[start,]))[1]            
-            next_node=int(np.random.choice(list(sample),1)) 
-            
-        return next_node
+        
+        end_time = time.time()
+        self.aggreagate_stats(dpid, (end_time - start_time), packet_count, flow_count )
+        
+    def aggreagate_stats(self, dpid, time,count, flow_count):
+        if self.flow_count[dpid] != flow_count or self.total_packets[dpid] != count:
+            self.flow_count[dpid] = flow_count
+            self.total_time[dpid] = time
+            self.total_packets[dpid] = count
+            print("After processing dpid: ",dpid," Total time = ", sum(self.total_time.values()), " Total packets = ", sum(self.total_packets.values()))
+
+ 
     
     def modify_flow(self, datapath, match_info):
         ofproto = datapath.ofproto

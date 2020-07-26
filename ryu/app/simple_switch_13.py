@@ -141,9 +141,9 @@ class SimpleSwitch13(app_manager.RyuApp):
                     
                 # self.logger.info("IP packet in %s %s %s %s", dpid, srcip, dstip, in_port)
                 self.logger.info("Blocked IPs :  %s",ip_class.ip_class)
-                if (srcip in ip_class.ip_class ):
-                    self.logger.info("IP %s is blocked ",srcip)
-                    return
+                # if (srcip in ip_class.ip_class ):
+                #     self.logger.info("IP %s is blocked ",srcip)
+                #     return
                 match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP,
                                         ipv4_src=srcip,
                                         ipv4_dst=dstip,
